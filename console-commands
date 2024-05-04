@@ -1,0 +1,23 @@
+// Get all order elements
+const orderElements = document.querySelectorAll('.order-box');
+
+// Initialize total amount spent
+let totalAmount = 0;
+
+// Iterate over each order element
+orderElements.forEach(orderElement => {
+    // Extract price element
+    const priceElement = orderElement.querySelector('.item-price');
+    
+    // Extract price text
+    const priceText = priceElement.textContent.trim();
+    
+    // Extract amount from price text
+    const amount = parseFloat(priceText.split(' ')[1]); // Assuming the format is always "Tk <amount>"
+    
+    // Add amount to total
+    totalAmount += amount;
+});
+
+// Log total amount spent
+console.log('Total amount spent:', totalAmount);
